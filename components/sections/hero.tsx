@@ -1,0 +1,7 @@
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { availableHref, primaryCtaHref, siteConfig } from "@/config/site";
+
+export function Hero() {
+  return <section className="hero"><div className="container hero__inner"><div className="hero__copy"><span className="eyebrow"><span className="eyebrow__line" />[TEMPLATE DEMONSTRATIVO] · {siteConfig.tagline}</span><h1>O extraordinário<br />começa com<br /><em>uma ideia.</em></h1><p>[Apresente aqui a proposta única da marca em uma frase curta e memorável. Este conteúdo é demonstrativo.]</p><div className="hero__actions"><Button href={primaryCtaHref()}>{siteConfig.cta.label}</Button>{availableHref(siteConfig.cta.secondaryHref) && <Button href={siteConfig.cta.secondaryHref} variant="outline">{siteConfig.cta.secondaryLabel}</Button>}</div></div><div className="hero__art" aria-label="Composição gráfica abstrata demonstrativa" role="img"><div className="hero__shape hero__shape--back" /><div className="hero__shape hero__shape--front" /><div className="hero__art-label">FORM &<br />FEELING<span>01 / 04</span></div><div className="hero__art-stamp">✳</div></div><div className="hero__bottom"><span>CRIATIVIDADE COM PROPÓSITO</span><a href="#conteudo" aria-label="Ir para conteúdo"><ArrowDown size={18} /></a><span>EXPLORE O QUE FAZEMOS <ArrowUpRight size={14} /></span></div></div></section>;
+}

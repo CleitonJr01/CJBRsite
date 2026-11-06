@@ -1,0 +1,19 @@
+# Dependências e artefatos gerados
+/node_modules/
+/.next/
+/out/
+/build/
+/coverage/
+*.tsbuildinfo
+
+# Configurações locais e credenciais
+.env*
+!.env.example
+.vercel/
+*.pem
+*.key
+
+# Logs e arquivos do sistema
+*.log
+.DS_Store
+Thumbs.db

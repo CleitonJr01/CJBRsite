@@ -51,7 +51,7 @@ export function Header() {
   const nav = enabledNavigation();
   return <header className="site-header">
     <div className="container site-header__inner">
-      <Link href="/" className="brand" aria-label={`${siteConfig.name}, ir ao início`}><span className="logo-crop"><img src="/images/cjbr-sites-logo-v4.png" alt="CJBR Sites" width="1254" height="1254" /></span></Link>
+      <Link href="/" className="brand" aria-label={`${siteConfig.name}, ir ao início`}><span className="logo-crop"><img src="/images/cjbr-logo.webp" alt="CJBR Sites" width="440" height="160" decoding="async" /></span></Link>
       <nav className="desktop-nav" aria-label="Navegação principal">{nav.map(item => <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined}>{item.label}</Link>)}</nav>
       <Link className="header-cta" href={primaryCtaHref()}>{siteConfig.cta.label}<ArrowUpRight size={16} aria-hidden="true" /></Link>
       <button ref={toggleRef} className="menu-toggle" type="button" onClick={() => setOpen(!open)} aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open} aria-controls="mobile-nav">{open ? <X /> : <Menu />}</button>

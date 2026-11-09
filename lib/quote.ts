@@ -4,7 +4,7 @@ export type QuoteItem = { id: string; name: string; cents: number; monthly: bool
 const cents = (value: string) => Math.round(Number(value.replace(/[^\d,]/g, "").replace(",", ".")) * 100);
 export const catalog: QuoteItem[] = [
   ...plans.map((p, i) => ({ id: `site-${i}`, name: `Site ${p.name}`, cents: cents(p.price), monthly: false, group: "site" })),
-  { id: "landing", name: "Página de apresentação de uma oferta", cents: 49700, monthly: false, group: "site" },
+  { id: "landing", name: "Página de apresentação de uma oferta", cents: cents(plans[0].price), monthly: false, group: "site" },
   ...dailyPackages.map((p, i) => ({ id: `package-${i}`, name: p.name, cents: cents(p.price), monthly: false, group: i < 2 ? "store" : undefined })),
   ...carePlans.map((p, i) => ({ id: `care-${i}`, name: p.name, cents: cents(p.price), monthly: true, group: "care" })),
   ...extras.map(([name, price], i) => ({ id: `extra-${i}`, name, cents: cents(price), monthly: false, from: price.startsWith("A partir") })),

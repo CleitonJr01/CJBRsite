@@ -13,7 +13,7 @@ function load(file){
 const q=load(path.resolve(__dirname,'../lib/quote.ts'));
 test('separa pagamento único de mensalidade usando centavos',()=>{
  const result=q.quoteTotals(['site-2','care-1','extra-0']);
- assert.equal(result.once,122700);assert.equal(result.monthly,5990);assert.equal(result.from,false);
+ assert.equal(result.once,122200);assert.equal(result.monthly,7990);assert.equal(result.from,false);
 });
 test('troca opções exclusivas sem apagar outros serviços',()=>{
  let ids=q.toggleItem(['site-0','care-0','extra-0'],'site-1');
@@ -26,7 +26,7 @@ test('pedidos substitui vitrine porque já a inclui',()=>{
  const ids=q.toggleItem(['package-0','package-2'],'package-1');assert.equal(ids.includes('package-0'),false);assert.equal(ids.includes('package-2'),true);
 });
 test('preço a partir de permanece estimativa e IDs desconhecidos não entram',()=>{
- const result=q.quoteTotals(['extra-9','fake']);assert.equal(result.once,20000);assert.equal(result.from,true);
+ const result=q.quoteTotals(['extra-9','fake']);assert.equal(result.once,35000);assert.equal(result.from,true);
  assert.equal(q.selectedItems(['site-0','site-0']).length,1);
 });
 test('Gmail, mailto e WhatsApp recebem o mesmo resumo e observações sem perder caracteres',()=>{
@@ -40,4 +40,12 @@ test('Gmail, mailto e WhatsApp recebem o mesmo resumo e observações sem perder
 test('seleção vazia gera mensagem geral e limita observações',()=>{
  assert.ok(q.quoteMessage([]).includes('ajuda para escolher'));
  const msg=q.quoteMessage(['site-0'],'A'.repeat(900));assert.ok(msg.endsWith('A'.repeat(500)));assert.ok(!msg.includes('A'.repeat(501)));
+});
+
+test('landing tem o preço do Essencial e upgrade de pedidos mantém diferença de R$ 200',()=>{
+ const item=id=>q.catalog.find(i=>i.id===id);
+ assert.equal(item('landing').cents,item('site-0').cents);
+ assert.equal(item('package-1').cents-item('package-0').cents,item('extra-5').cents);
+ assert.equal(q.quoteTotals(['site-0','care-0']).once,49700);
+ assert.equal(q.quoteTotals(['site-0','care-0']).monthly,2990);
 });

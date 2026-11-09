@@ -47,3 +47,16 @@ Antes de publicar, configure `NEXT_PUBLIC_SITE_URL` com o domínio real em `.env
 - Imagens têm cache de 24 horas com revalidação. Arquivos sociais podem ser versionados para renovar as prévias.
 
 Após publicar, confira o canonical e as imagens no domínio público. Cadastre a propriedade no Google Search Console e envie `https://cjbrsites.vercel.app/sitemap.xml`. A publicação, verificação de propriedade e indexação não são realizadas automaticamente por essas alterações de código. As plataformas também podem manter prévias antigas em cache.
+
+
+## Orçamento, contato e aparência
+
+- Anúncios, métricas avulsas e pacote combinado estão ocultos por `features.ads: false` em `config/site.ts`. O menu mostra Hospedagem. O link público do cardápio antigo foi retirado da página porque ainda descreve esses serviços; os PDFs originais permanecem preservados.
+- `lib/quote.ts` monta o catálogo a partir dos preços em `data/landing.ts`, calcula em centavos e separa cobrança única da mensal. Itens com preço “a partir de” continuam identificados como estimativa.
+- `components/shop/quote-builder.tsx` permite selecionar/remover serviços, revisar valores e incluir observações. Um plano de site substitui outro; um mensal substitui outro. Pedidos no WhatsApp substitui Vitrine digital, que já está incluída.
+- Contato: `cjbrsites@gmail.com`. Gmail e aplicativo de e-mail recebem o mesmo resumo. O visitante revisa e envia; o site não dispara mensagens nem cobra pagamentos.
+- WhatsApp permanece “Em breve”. Para ativar, preencha `siteConfig.contact.whatsapp` com DDI, DDD e número, somente dígitos. O mesmo resumo será enviado ao link de conversa.
+- O seletor de tema segue inicialmente a preferência do dispositivo. O banner permite guardar tema e IDs dos serviços via armazenamento local. “Só o necessário” guarda apenas a decisão e remove preferências opcionais. Observações nunca são persistidas. Não há rastreadores de anúncios/analytics. Reabra o aviso no botão Cookies do rodapé.
+- Logo do cabeçalho: `public/images/cjbr-logo-transparent.webp`, com alpha real. A versão PNG transparente fica na mesma pasta. O original é preservado.
+- Nova logo baseada no favicon: `cjbr-logo-favicon.svg` / `.png` e `cjbr-logo-favicon-light.svg` / `.png`. A variante nova está disponível como arquivo; o cabeçalho continua com a marca anterior, agora transparente.
+- `npm test` verifica exclusividade, totais, estimativas, codificação dos contatos e ausência de número de WhatsApp. Build: `npm run build`. Tipos: `npm run typecheck`.

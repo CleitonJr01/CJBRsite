@@ -6,10 +6,11 @@ export const siteConfig = {
   shortName: "CJBR",
   logo: { mark: "✳", descriptor: "SITES & SOLUÇÕES DIGITAIS" },
   tagline: "Seu próximo passo no digital.",
-  description: "Sites profissionais, sistemas e anúncios para conectar sua empresa a novas possibilidades.",
+  description: "Sites profissionais, catálogos e agendamentos para facilitar o contato com seus clientes.",
   locale: "pt_BR",
+  features: { ads: false },
   contact: {
-    email: "",
+    email: "cjbrsites@gmail.com",
     phone: "+55 00 00000-0000",
     whatsapp: "",
     message: "Olá! Conheci a CJBR Sites e gostaria de conversar sobre um projeto para minha empresa.",
@@ -32,7 +33,7 @@ export const siteConfig = {
   navigation: [
     { label: "Soluções", href: "/#solucoes" },
     { label: "Planos", href: "/#planos" },
-    { label: "Anúncios", href: "/#anuncios" },
+    { label: "Hospedagem", href: "/#hospedagem" },
     { label: "Como funciona", href: "/#processo" },
     { label: "Dúvidas", href: "/#duvidas" },
   ],

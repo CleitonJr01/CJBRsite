@@ -8,8 +8,8 @@ export function StructuredData() {
     "@graph": [
       {
         "@type": "Organization", "@id": organization,
-        name: siteConfig.name, url: `${siteUrl}/`, description: siteConfig.description,
-        logo: { "@type": "ImageObject", url: `${siteUrl}/images/cjbr-logo.webp`, width: 440, height: 160 },
+        name: siteConfig.name, email: siteConfig.contact.email, url: `${siteUrl}/`, description: siteConfig.description,
+        logo: { "@type": "ImageObject", url: `${siteUrl}/images/cjbr-logo-transparent.webp`, width: 440, height: 147 },
       },
       {
         "@type": "WebSite", "@id": `${siteUrl}/#website`,
